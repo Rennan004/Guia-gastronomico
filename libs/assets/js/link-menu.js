@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     // Iremos selecionar todos os elementos da classe .nav-link
-    $('a').click(function(e) {
+    $('.meetings-page').click(function(e) {
         e.preventDefault() //Anula as funcionalidades prioritário do elemento HTML
 
         // Criar uma variável local que receberá o link que tem de ser aberto
@@ -11,7 +11,7 @@ $(document).ready(function() {
         $('#meetings').empty()
 
         //Atribuir um novo conteúdo
-        $('#meetings').load(url)
+        $('#detalhes').load(url)
 
     })
 })
