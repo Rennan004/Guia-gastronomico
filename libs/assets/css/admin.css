@@ -1,4 +1,17 @@
-.form-check {
-    font-size: 1.1rem;
-    font-weight: 600;
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.coluna {
+    height: 100vh;
+}
+
+.box {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.ajuste {
+    margin-top: 2rem;
 }

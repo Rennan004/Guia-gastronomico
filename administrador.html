@@ -11,114 +11,133 @@
 <link rel="stylesheet" href="libs/assets/css/admin.css">
 
 <body>
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Perfil</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contato</a>
-        </li>
-    </ul>
-    <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-            <div class="container bg-info rounded p-3">
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label>Nome do Estabelecimento</label>
-                            <input type="Estabelecimento" class="form-control" id="Estabelecimento" placeholder="Nome do Estabelecimento">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword4">Senha</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="Senha">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress">Endereço</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputCity">Cidade</label>
-                            <input type="text" class="form-control" id="inputCity">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputEstado">Estado</label>
-                            <select id="inputEstado" class="form-control">
-                          <option selected>Escolher...</option>
-                          <option value="AC">Acre</option>
-                          <option value="AL">Alagoas</option>
-                          <option value="AP">Amapá</option>
-                          <option value="AM">Amazonas</option>
-                          <option value="BA">Bahia</option>
-                          <option value="CE">Ceará</option>
-                          <option value="DF">Distrito Federal</option>
-                          <option value="ES">Espírito Santo</option>
-                          <option value="GO">Goiás</option>
-                          <option value="MA">Maranhão</option>
-                          <option value="MT">Mato Grosso</option>
-                          <option value="MS">Mato Grosso do Sul</option>
-                          <option value="MG">Minas Gerais</option>
-                          <option value="PA">Pará</option>
-                          <option value="PB">Paraíba</option>
-                          <option value="PR">Paraná</option>
-                          <option value="PE">Pernambuco</option>
-                          <option value="PI">Piauí</option>
-                          <option value="RJ">Rio de Janeiro</option>
-                          <option value="RN">Rio Grande do Norte</option>
-                          <option value="RS">Rio Grande do Sul</option>
-                          <option value="RO">Rondônia</option>
-                          <option value="RR">Roraima</option>
-                          <option value="SC">Santa Catarina</option>
-                          <option value="SP">São Paulo</option>
-                          <option value="SE">Sergipe</option>
-                          <option value="TO">Tocantins</option>
-                          <option value="EX">Estrangeiro</option>
-                        </select>
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="inputCEP">CEP</label>
-                            <input type="text" class="form-control" id="inputCEP">
-                        </div>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="exampleFormControlTextarea1">Exemplo de textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
-                            <label class="form-check-label" for="inlineCheckbox1">Comida</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
-                            <label class="form-check-label" for="inlineCheckbox1">Comida</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
-                            <label class="form-check-label" for="inlineCheckbox1">Comida</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
-                            <label class="form-check-label" for="inlineCheckbox1">Comida</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
-                            <label class="form-check-label" for="inlineCheckbox1">Comida</label>
-                        </div>
 
-                    </div>
-                    <button type="submit" class="btn btn-dark">Entrar</button>
-                </form>
+    <div class="row">
+        <div class="col-3 bg-dark coluna">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Perfil</a>
+                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Mensagens</a>
+                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Configurações</a>
             </div>
         </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">Area destinada a ver qual tipo de usuario</div>
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
-    </div>
+        <div class="col-9">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <!--Formulario-->
+                    <div class="container bg-info rounded p-3 box">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Nome do Estabelecimento</label>
+                                    <input type="text" class="form-control" id="ESTABELECIMENTO" placeholder="Nome do Estabelecimento">
+                                </div>
+                                <div class="form-group col-md-6 ajuste">
+                                    <label>Foto</label>
+                                    <input type="file" id="FOTO">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Endereço</label>
+                                <input type="text" class="form-control" id="ENDERECO" placeholder="Rua dos Bobos, nº 0">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Cidade</label>
+                                    <input type="text" class="form-control" id="CIDADE">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Estado</label>
+                                    <select id="ESTADO" class="form-control">
+                              <option selected>Escolher...</option>
+                              <option value="AC">Acre</option>
+                              <option value="AL">Alagoas</option>
+                              <option value="AP">Amapá</option>
+                              <option value="AM">Amazonas</option>
+                              <option value="BA">Bahia</option>
+                              <option value="CE">Ceará</option>
+                              <option value="DF">Distrito Federal</option>
+                              <option value="ES">Espírito Santo</option>
+                              <option value="GO">Goiás</option>
+                              <option value="MA">Maranhão</option>
+                              <option value="MT">Mato Grosso</option>
+                              <option value="MS">Mato Grosso do Sul</option>
+                              <option value="MG">Minas Gerais</option>
+                              <option value="PA">Pará</option>
+                              <option value="PB">Paraíba</option>
+                              <option value="PR">Paraná</option>
+                              <option value="PE">Pernambuco</option>
+                              <option value="PI">Piauí</option>
+                              <option value="RJ">Rio de Janeiro</option>
+                              <option value="RN">Rio Grande do Norte</option>
+                              <option value="RS">Rio Grande do Sul</option>
+                              <option value="RO">Rondônia</option>
+                              <option value="RR">Roraima</option>
+                              <option value="SC">Santa Catarina</option>
+                              <option value="SP">São Paulo</option>
+                              <option value="SE">Sergipe</option>
+                              <option value="TO">Tocantins</option>
+                              <option value="EX">Estrangeiro</option>
+                            </select>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label>CEP</label>
+                                    <input type="text" class="form-control" id="CEP">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label>Horario de abertura</label>
+                                    <input type="time" class="form-control" id="ABERTURA">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Horario de fechamento</label>
+                                    <input type="time" class="form-control" id="FECHAMENTO">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label>Telefone</label>
+                                    <input type="text" class="form-control" id="TELEFONE">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label>Descrição</label>
+                                <textarea class="form-control" id="DESCRICAO" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="comida" value="opcao1">
+                                    <label class="form-check-label" for="comida">Comida</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="comida" value="opcao1">
+                                    <label class="form-check-label" for="comida">Comida</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="comida" value="opcao1">
+                                    <label class="form-check-label" for="inlineCheckbox1">Comida</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                                    <label class="form-check-label" for="inlineCheckbox1">Comida</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="opcao1">
+                                    <label class="form-check-label" for="comida">Comida</label>
+                                </div>
+                                <input type="hidden" name="ID" id="ID">
+                            </div>
+                            <button type="submit" class="btn btn-dark">Entrar</button>
+                        </form>
+                    </div>
 
+
+                </div>
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
+                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+            </div>
+        </div>
+    </div>
     <script src="libs/vendor/jquery/jquery.min.js"></script>
     <script src="libs/vendor/bootstrap/js/bootstrap.js"></script>
 </body>
