@@ -1,0 +1,67 @@
+<div id="content" class="container mt-5">
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card shadow mt-5">
+                <div class="card-header">
+                    <div class="card-title">
+                        <div class="row">
+                            <div class="col-12 col-md-10">
+                                <h4 class="text-danger">
+                                    Gerenciar tipos
+                                </h4>
+                            </div>
+                            <div class="col-12 col-md-2">
+                                <button class="btn btn-danger btn-block btn-new">
+                                <i class="fa-solid fa-circle-plus"></i> Adicionar
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="table-tipo">
+                            <thead class="thead">
+                                <tr>
+                                    <th scope="col" class="text-center">ID</th>
+                                    <th scope="col" class="text-center">NOME</th>
+                                    <th scope="col" class="text-center">AÇÕES</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Janela modal para recebimento das funcionalidades do CRUD -->
+    <div id="modal-tipo" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="my-modal-title">Title</h5>
+                    <button class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <p>Content</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="close" class="btn btn-secondary"><i class="mdi mdi-close-circle"></i> Fechar</button>
+                    <button class="btn btn-success btn-save"><i class="mdi mdi-content-save"></i> Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="src/tipo/controller/list-tipo.js"></script>
+    <script src="src/tipo/controller/new-tipo.js"></script>
+    <script src="src/tipo/controller/save-tipo.js"></script>
+    <script src="src/tipo/controller/view-tipo.js"></script>
+    <script src="src/tipo/controller/edit-tipo.js"></script>
+    <script src="src/tipo/controller/delete-tipo.js"></script>
+</div>
