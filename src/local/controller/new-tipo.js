@@ -7,7 +7,7 @@ $(document).ready(function() {
 
         $('.modal-title').append('Adicionar novo tipo de tipo')
 
-        $('.modal-body').load('src/tipo/view/form-tipo.html')
+        $('.modal-body').load('src/local/view/form-tipo.html')
 
         $('.btn-save').show()
 

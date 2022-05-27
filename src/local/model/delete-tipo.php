@@ -4,7 +4,7 @@ include('../../conexao/conn.php');
 
 $ID = $_REQUEST['ID'];
 
-$sql = "DELETE FROM TIPO WHERE ID = $ID";
+$sql = "DELETE FROM LOCAL WHERE ID = $ID";
 
 $resultado = $pdo->query($sql);
 

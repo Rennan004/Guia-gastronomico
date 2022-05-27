@@ -18,10 +18,10 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: ID,
-            url: 'src/tipo/model/view-tipo.php',
+            url: 'src/local/model/view-tipo.php',
             success: function(dado) {
                 if (dado.tipo == "success") {
-                    $('.modal-body').load('src/tipo/view/form-tipo.html', function() {
+                    $('.modal-body').load('src/local/view/form-tipo.html', function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#ID').val(dado.dados.ID)
                     })

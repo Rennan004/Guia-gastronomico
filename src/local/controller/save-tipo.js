@@ -17,7 +17,7 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: dados,
-            url: 'src/tipo/model/save-tipo.php',
+            url: 'src/local/model/save-tipo.php',
             success: function(dados) {
                 Swal.fire({
                     title: 'Sistema de rifas',

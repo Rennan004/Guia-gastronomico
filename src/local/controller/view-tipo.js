@@ -21,7 +21,7 @@ $(document).ready(function() {
             url: 'src/tipo/model/view-tipo.php',
             success: function(dado) {
                 if (dado.tipo == "success") {
-                    $('.modal-body').load('src/tipo/view/form-tipo.html', function() {
+                    $('.modal-body').load('src/local/view/form-tipo.html', function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#NOME').attr('readonly', 'true')
                     })
