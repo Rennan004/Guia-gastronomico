@@ -42,7 +42,7 @@
                 $stmt = $pdo->prepare('UPDATE TIPO SET NOME = :a WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
-                    ':a' => utf8_decode($requestData['NOME'])
+                    ':a' => utf8_decode($requestData['NOME']),
                 ));
                 $dados = array(
                     "tipo" => 'success',
