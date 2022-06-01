@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    $('#table-tipo').DataTable({
+    $('#table-local').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "src/local/model/list-tipo.php",
+            "url": "src/local/model/list-local.php",
             "type": "POST"
         },
         "language": {
@@ -15,6 +15,10 @@ $(document).ready(function() {
             },
             {
                 "data": 'NOME',
+                "className": 'text-center'
+            },
+            {
+                "data": 'TELEFONE',
                 "className": 'text-center'
             },
             {

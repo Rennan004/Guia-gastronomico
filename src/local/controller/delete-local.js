@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('#table-tipo').on('click', 'button.btn-delete', function(e) {
+    $('#table-local').on('click', 'button.btn-delete', function(e) {
 
         e.preventDefault()
 
@@ -21,7 +21,7 @@ $(document).ready(function() {
                     dataType: 'json',
                     assync: true,
                     data: ID,
-                    url: 'src/local/model/delete-tipo.php',
+                    url: 'src/local/model/delete-local.php',
                     success: function(dados) {
                         Swal.fire({
                             title: 'Sistema de Rifas',

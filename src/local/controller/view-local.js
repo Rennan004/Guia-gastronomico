@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('#table-tipo').on('click', 'button.btn-view', function(e) {
+    $('#table-local').on('click', 'button.btn-view', function(e) {
 
         e.preventDefault()
 
@@ -18,15 +18,15 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: ID,
-            url: 'src/tipo/model/view-tipo.php',
+            url: 'src/tipo/model/view-local.php',
             success: function(dado) {
                 if (dado.tipo == "success") {
-                    $('.modal-body').load('src/local/view/form-tipo.html', function() {
+                    $('.modal-body').load('src/local/view/form-local.html', function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#NOME').attr('readonly', 'true')
                     })
                     $('.btn-save').hide()
-                    $('#modal-tipo').modal('show')
+                    $('#modal-local').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
                         title: 'e-Rifa', // Título da janela SweetAler

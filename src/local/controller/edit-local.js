@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('#table-tipo').on('click', 'button.btn-edit', function(e) {
+    $('#table-local').on('click', 'button.btn-edit', function(e) {
 
         e.preventDefault()
 
@@ -18,16 +18,16 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: ID,
-            url: 'src/local/model/view-tipo.php',
+            url: 'src/local/model/view-local.php',
             success: function(dado) {
                 if (dado.tipo == "success") {
-                    $('.modal-body').load('src/local/view/form-tipo.html', function() {
+                    $('.modal-body').load('src/local/view/form-local.html', function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#ID').val(dado.dados.ID)
                     })
                     $('.btn-save').removeAttr('data-operation', 'insert')
                     $('.btn-save').show()
-                    $('#modal-tipo').modal('show')
+                    $('#modal-local').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
                         title: 'Sistema de Rifas', // Título da janela SweetAlert

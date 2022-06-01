@@ -5,19 +5,19 @@ $(document).ready(function() {
         $('.modal-title').empty()
 
 
-        $('.modal-title').append('Adicionar novo tipo de tipo')
+        $('.modal-title').append('Adicionar novo local')
 
-        $('.modal-body').load('src/local/view/form-tipo.html')
+        $('.modal-body').load('src/local/view/form-local.html')
 
         $('.btn-save').show()
 
         $('.btn-save').attr('data-operation', 'insert')
 
-        $('#modal-tipo').modal('show')
+        $('#modal-local').modal('show')
     })
 
     $('.close, #close').click(function(e) {
         e.preventDefault()
-        $('#modal-tipo').modal('hide')
+        $('#modal-local').modal('hide')
     })
 })
