@@ -22,9 +22,10 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO LOCAL (NOME) VALUES (:a)');
+                $stmt = $pdo->prepare('INSERT INTO LOCAL (NOME, TELEFONE) VALUES (:a, :b)');
                 $stmt->execute(array(
-                    ':a' => utf8_decode($requestData['NOME'])
+                    ':a' => utf8_decode($requestData['NOME']),
+                    ':b' => utf8_decode($requestData['TELEFONE'])
                 ));
                 $dados = array(
                     "tipo" => 'success',
