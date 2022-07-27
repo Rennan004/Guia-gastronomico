@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('#table-local').on('click', 'button.btn-view', function(e) {
+    $('#table-categoria').on('click', 'button.btn-edit', function(e) {
 
         e.preventDefault()
 
@@ -18,18 +18,19 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: ID,
-            url: 'src/tipo/model/view-local.php',
+            url: 'src/categoria/model/view-categoria.php',
             success: function(dado) {
                 if (dado.tipo == "success") {
-                    $('.modal-body').load('src/local/view/form-local.html', function() {
-                        $('#NOME').val(dado.dados.NOME)
-                        $('#NOME').attr('readonly', 'true')
+                    $('.modal-body').load('src/categoria/view/form-categoria.html', function() {
+                        $('#CATEGORIA').val(dado.dados.CATEGORIA)
+                        $('#ID').val(dado.dados.ID)
                     })
-                    $('.btn-save').hide()
-                    $('#modal-local').modal('show')
+                    $('.btn-save').removeAttr('data-operation', 'insert')
+                    $('.btn-save').show()
+                    $('#modal-categoria').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
-                        title: 'e-Rifa', // Título da janela SweetAler
+                        title: 'Sistema de Rifas', // Título da janela SweetAlert
                         text: dado.mensagem, // Mensagem retornada do microserviço
                         type: dado.tipo, // Tipo de retorno [success, info ou error]
                         confirmButtonText: 'OK'

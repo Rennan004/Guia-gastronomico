@@ -7,7 +7,7 @@
     $ID = $_REQUEST['ID'];
 
     // Gero a querie de consulta no banco de dados
-    $sql = "SELECT * FROM TIPOUSUARIO WHERE ID = $ID";
+    $sql = "SELECT * FROM USUARIO WHERE ID = $ID";
 
     // Executar nossa querie de consulta ao banco de dados
     $resultado = $pdo->query($sql);

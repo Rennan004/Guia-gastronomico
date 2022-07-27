@@ -22,10 +22,13 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO TIPOUSUARIO (NOME) VALUES (:a)');
+                $stmt = $pdo->prepare('INSERT INTO USUARIO (NOME, EMAIL, SENHA, TIPOUSUARIO_ID) VALUES (:a, :c, :d, :e)');
                 $stmt->execute(array(
                     //':a' => utf8_decode($requestData['NOME'])
-                    ':a' => $requestData['NOME']
+                    ':a' => $requestData['NOME'],
+                    ':c' => $requestData['EMAIL'],
+                    ':d' => md5($requestData['SENHA']),
+                    ':e' => $requestData['TIPOUSUARIO_ID']
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -40,11 +43,14 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE TIPOUSUARIO SET NOME = :a WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE USUARIO SET NOME = :a, EMAIL = :c, SENHA = :d, TIPOUSUARIO_ID = :e WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
                      //':a' => utf8_decode($requestData['NOME'])
-                     ':a' => ($requestData['NOME'])
+                     ':a' => $requestData['NOME'],
+                     ':c' => $requestData['EMAIL'],
+                     ':d' => md5($requestData['SENHA']),
+                     ':e' => $requestData['TIPOUSUARIO_ID']
                 ));
                 $dados = array(
                     "tipo" => 'success',

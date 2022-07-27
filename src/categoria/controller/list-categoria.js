@@ -1,9 +1,9 @@
 $(document).ready(function() {
-    $('#table-local').DataTable({
+    $('#table-categoria').DataTable({
         "processing": true,
         "serverSide": true,
         "ajax": {
-            "url": "src/local/model/list-local.php",
+            "url": "src/categoria/model/list-categoria.php",
             "type": "POST"
         },
         "language": {
@@ -14,11 +14,7 @@ $(document).ready(function() {
                 "className": 'text-center'
             },
             {
-                "data": 'NOME',
-                "className": 'text-center'
-            },
-            {
-                "data": 'TELEFONE',
+                "data": 'CATEGORIA',
                 "className": 'text-center'
             },
             {

@@ -7,7 +7,7 @@
     $ID = $_REQUEST['ID'];
 
     // Gero a querie de consulta no banco de dados
-    $sql = "SELECT * FROM LOCAL WHERE ID = $ID";
+    $sql = "SELECT * FROM CATEGORIA WHERE ID = $ID";
 
     // Executar nossa querie de consulta ao banco de dados
     $resultado = $pdo->query($sql);
@@ -16,7 +16,8 @@
     if($resultado){
         $result = array();
         while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-            $result = array_map('utf8_encode', $row);
+            //$result = array_map('utf8_encode', $row);
+            $result = array_map(null, $row);
         }
         $dados = array(
             'tipo' => 'success',

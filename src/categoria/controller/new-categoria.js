@@ -5,19 +5,19 @@ $(document).ready(function() {
         $('.modal-title').empty()
 
 
-        $('.modal-title').append('Adicionar novo local')
+        $('.modal-title').append('Adicionar novo categoria de categoria')
 
-        $('.modal-body').load('src/local/view/form-local.html')
+        $('.modal-body').load('src/categoria/view/form-categoria.html')
 
         $('.btn-save').show()
 
         $('.btn-save').attr('data-operation', 'insert')
 
-        $('#modal-local').modal('show')
+        $('#modal-categoria').modal('show')
     })
 
     $('.close, #close').click(function(e) {
         e.preventDefault()
-        $('#modal-local').modal('hide')
+        $('#modal-categoria').modal('hide')
     })
 })
