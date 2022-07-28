@@ -112,7 +112,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `TIPOUSUARIO` (
   `ID` INT NOT NULL AUTO_INCREMENT,
-  `DESCRICAO` VARCHAR(45) NULL,
+  `NOME` VARCHAR(45) NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
 
