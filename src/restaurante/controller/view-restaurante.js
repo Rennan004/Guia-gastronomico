@@ -22,8 +22,8 @@ $(document).ready(function() {
             success: function(dado) {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/restaurante/view/form-restaurante.html', function() {
-                        $('#RESTAURANTE').val(dado.dados.restaurante)
-                        $('#RESTAURANTE').attr('readonly', 'true')
+                        $('#NOME').val(dado.dados.NOME)
+                        $('#NOME').attr('readonly', 'true')
                     })
                     $('.btn-save').hide()
                     $('#modal-restaurante').modal('show')

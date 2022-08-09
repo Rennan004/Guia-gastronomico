@@ -11,7 +11,7 @@
     $colunas = $requestData['columns'];
 
     //Preparar o comando sql para obter os dados da RESTAURANTE
-    $sql = "SELECT ID, RESTAURANTE FROM RESTAURANTE WHERE 1=1 ";
+    $sql = "SELECT ID, NOME FROM RESTAURANTE WHERE 1=1 ";
 
     //Obter o total de registros cadastrados
     $resultado = $pdo->query($sql);
@@ -23,7 +23,7 @@
         //Montar a expressão lógica que irá compor os filtros
         //Aqui você deverá determinar quais colunas farão parte do filtro
         $sql .= " AND (ID LIKE '$filtro%' ";
-        $sql .= " OR RESTAURANTE LIKE '$filtro%') ";
+        $sql .= " OR NOME LIKE '$filtro%') ";
     }
     
     //Obter o total dos dados filtrados

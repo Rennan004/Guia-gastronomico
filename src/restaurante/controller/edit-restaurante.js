@@ -22,7 +22,7 @@ $(document).ready(function() {
             success: function(dado) {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/restaurante/view/form-restaurante.html', function() {
-                        $('#RESTAURANTE').val(dado.dados.restaurante)
+                        $('#NOME').val(dado.dados.NOME)
                         $('#ID').val(dado.dados.ID)
                     })
                     $('.btn-save').removeAttr('data-operation', 'insert')
