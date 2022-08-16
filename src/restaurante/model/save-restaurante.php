@@ -22,10 +22,22 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO RESTAURANTE (NOME) VALUES (:a)');
+                $stmt = $pdo->prepare('INSERT INTO RESTAURANTE (NOME, DESCRICAO, CEP, LOGRADOURO, BAIRRO, NUMERO, HORARIO, TELEFONE1, TELEFONE2, FACEBOOK, INSTRAGAM, IFOOD, FOTO) VALUES (:a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k, :l, :m)');
                 $stmt->execute(array(
                     //':a' => utf8_decode($requestData['RESTAURANTE'])
                     ':a' => $requestData['NOME']
+                    ':b' => $requestData['DESCRICAO']
+                    ':c' => $requestData['CEP']
+                    ':d' => $requestData['LOGRADOURO']
+                    ':e' => $requestData['BAIRRO']
+                    ':f' => $requestData['NUMERO']
+                    ':g' => $requestData['HORARIO']
+                    ':h' => $requestData['TELEFONE1']
+                    ':i' => $requestData['TELEFONE2']
+                    ':j' => $requestData['FACEBOOK']
+                    ':k' => $requestData['INSTRAGAM']
+                    ':l' => $requestData['IFOOD']
+                    ':m' => $requestData['FOTO']
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -40,11 +52,24 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
-                $stmt = $pdo->prepare('UPDATE RESTAURANTE SET NOME = :a WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE RESTAURANTE SET NOME = :a, DESCRICAO = :b, CEP = :c, LOGRADOURO = :d, BAIRRO = :e, NUMERO = :f, HORARIO = :g, TELEFONE1 = :h, TELEFONE2 = :i, FACEBOOK = :j,
+                INSTAGRAM = :k, IFOOD = :l, FOTO = :m WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
                      //':a' => utf8_decode($requestData['RESTAURANTE'])
                      ':a' => ($requestData['NOME'])
+                     ':b' => $requestData['DESCRICAO']
+                     ':c' => $requestData['CEP']
+                     ':d' => $requestData['LOGRADOURO']
+                     ':e' => $requestData['BAIRRO']
+                     ':f' => $requestData['NUMERO']
+                     ':g' => $requestData['HORARIO']
+                     ':h' => $requestData['TELEFONE1']
+                     ':i' => $requestData['TELEFONE2']
+                     ':j' => $requestData['FACEBOOK']
+                     ':k' => $requestData['INSTRAGAM']
+                     ':l' => $requestData['IFOOD']
+                     ':m' => $requestData['FOTO']
                 ));
                 $dados = array(
                     "tipo" => 'success',
