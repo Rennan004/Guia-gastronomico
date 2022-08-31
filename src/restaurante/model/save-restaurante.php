@@ -25,18 +25,18 @@
                 $stmt = $pdo->prepare('INSERT INTO RESTAURANTE (NOME, DESCRICAO, CEP, LOGRADOURO, BAIRRO, NUMERO, HORARIO, TELEFONE1, TELEFONE2, FACEBOOK, INSTRAGAM, IFOOD, FOTO) VALUES (:a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k, :l, :m)');
                 $stmt->execute(array(
                     //':a' => utf8_decode($requestData['RESTAURANTE'])
-                    ':a' => $requestData['NOME']
-                    ':b' => $requestData['DESCRICAO']
-                    ':c' => $requestData['CEP']
-                    ':d' => $requestData['LOGRADOURO']
-                    ':e' => $requestData['BAIRRO']
-                    ':f' => $requestData['NUMERO']
-                    ':g' => $requestData['HORARIO']
-                    ':h' => $requestData['TELEFONE1']
-                    ':i' => $requestData['TELEFONE2']
-                    ':j' => $requestData['FACEBOOK']
-                    ':k' => $requestData['INSTRAGAM']
-                    ':l' => $requestData['IFOOD']
+                    ':a' => $requestData['NOME'],
+                    ':b' => $requestData['DESCRICAO'],
+                    ':c' => $requestData['CEP'],
+                    ':d' => $requestData['LOGRADOURO'],
+                    ':e' => $requestData['BAIRRO'],
+                    ':f' => $requestData['NUMERO'],
+                    ':g' => $requestData['HORARIO'],
+                    ':h' => $requestData['TELEFONE1'],
+                    ':i' => $requestData['TELEFONE2'],
+                    ':j' => $requestData['FACEBOOK'],
+                    ':k' => $requestData['INSTRAGAM'],
+                    ':l' => $requestData['IFOOD'],
                     ':m' => $requestData['FOTO']
                 ));
                 $dados = array(
@@ -57,18 +57,18 @@
                 $stmt->execute(array(
                     ':id' => $ID,
                      //':a' => utf8_decode($requestData['RESTAURANTE'])
-                     ':a' => ($requestData['NOME'])
-                     ':b' => $requestData['DESCRICAO']
-                     ':c' => $requestData['CEP']
-                     ':d' => $requestData['LOGRADOURO']
-                     ':e' => $requestData['BAIRRO']
-                     ':f' => $requestData['NUMERO']
-                     ':g' => $requestData['HORARIO']
-                     ':h' => $requestData['TELEFONE1']
-                     ':i' => $requestData['TELEFONE2']
-                     ':j' => $requestData['FACEBOOK']
-                     ':k' => $requestData['INSTRAGAM']
-                     ':l' => $requestData['IFOOD']
+                     ':a' => $requestData['NOME'],
+                     ':b' => $requestData['DESCRICAO'],
+                     ':c' => $requestData['CEP'],
+                     ':d' => $requestData['LOGRADOURO'],
+                     ':e' => $requestData['BAIRRO'],
+                     ':f' => $requestData['NUMERO'],
+                     ':g' => $requestData['HORARIO'],
+                     ':h' => $requestData['TELEFONE1'],
+                     ':i' => $requestData['TELEFONE2'],
+                     ':j' => $requestData['FACEBOOK'],
+                     ':k' => $requestData['INSTRAGAM'],
+                     ':l' => $requestData['IFOOD'],
                      ':m' => $requestData['FOTO']
                 ));
                 $dados = array(
