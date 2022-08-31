@@ -1,168 +1,263 @@
--- MySQL Workbench Forward Engineering
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 31-Ago-2022 às 14:42
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 8.1.6
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
-
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Table `RESTAURANTE`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `RESTAURANTE` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `NOME` VARCHAR(100) NOT NULL,
-  `DESCRICAO` VARCHAR(255) NULL,
-  `CEP` VARCHAR(9) NOT NULL,
-  `LOGRADOURO` VARCHAR(90) NOT NULL,
-  `BAIRRO` VARCHAR(50) NOT NULL,
-  `NUMERO` INT NOT NULL,
-  `HORARIO` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`ID`))
-ENGINE = InnoDB;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
--- -----------------------------------------------------
--- Table `FOTO`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `FOTO` (
-  `ID` INT NOT NULL,
-  `URL` VARCHAR(100) NULL,
-  `RESTAURANTE_ID` INT NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `fk_FOTO_RESTAURANTE1_idx` (`RESTAURANTE_ID` ASC),
-  CONSTRAINT `fk_FOTO_RESTAURANTE1`
-    FOREIGN KEY (`RESTAURANTE_ID`)
-    REFERENCES `RESTAURANTE` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Banco de dados: `tcc`
+--
 
--- -----------------------------------------------------
--- Table `TELEFONE`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TELEFONE` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `TELEFONE` INT NOT NULL,
-  `RESTAURANTE_ID` INT NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `fk_TELEFONE_RESTAURANTE_idx` (`RESTAURANTE_ID` ASC),
-  CONSTRAINT `fk_TELEFONE_RESTAURANTE`
-    FOREIGN KEY (`RESTAURANTE_ID`)
-    REFERENCES `RESTAURANTE` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+-- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `avaliacao`
+--
 
--- -----------------------------------------------------
--- Table `SOCIAL`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `SOCIAL` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `URL` VARCHAR(100) NULL,
-  `RESTAURANTE_ID` INT NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `fk_SOCIAL_RESTAURANTE1_idx` (`RESTAURANTE_ID` ASC),
-  CONSTRAINT `fk_SOCIAL_RESTAURANTE1`
-    FOREIGN KEY (`RESTAURANTE_ID`)
-    REFERENCES `RESTAURANTE` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+CREATE TABLE `avaliacao` (
+  `USUARIO_ID` int(11) NOT NULL,
+  `USUARIO_TIPOUSUARIO_ID` int(11) NOT NULL,
+  `RESTAURANTE_ID` int(11) NOT NULL,
+  `ID` varchar(45) NOT NULL,
+  `ESTRELAS` int(11) DEFAULT NULL,
+  `COMENTARIO` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `CATEGORIA`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `CATEGORIA` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `CATEGORIA` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`ID`))
-ENGINE = InnoDB;
+--
+-- Estrutura da tabela `categoria`
+--
 
+CREATE TABLE `categoria` (
+  `ID` int(11) NOT NULL,
+  `CATEGORIA` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- -----------------------------------------------------
--- Table `RESTAURANTE_has_CATEGORIA`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `RESTAURANTE_has_CATEGORIA` (
-  `RESTAURANTE_ID` INT NOT NULL,
-  `CATEGORIA_ID` INT NOT NULL,
-  PRIMARY KEY (`RESTAURANTE_ID`, `CATEGORIA_ID`),
-  INDEX `fk_RESTAURANTE_has_CATEGORIA_CATEGORIA1_idx` (`CATEGORIA_ID` ASC),
-  INDEX `fk_RESTAURANTE_has_CATEGORIA_RESTAURANTE1_idx` (`RESTAURANTE_ID` ASC),
-  CONSTRAINT `fk_RESTAURANTE_has_CATEGORIA_RESTAURANTE1`
-    FOREIGN KEY (`RESTAURANTE_ID`)
-    REFERENCES `RESTAURANTE` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_RESTAURANTE_has_CATEGORIA_CATEGORIA1`
-    FOREIGN KEY (`CATEGORIA_ID`)
-    REFERENCES `CATEGORIA` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+--
+-- Extraindo dados da tabela `categoria`
+--
 
+INSERT INTO `categoria` (`ID`, `CATEGORIA`) VALUES
+(1, 'Pizzaria'),
+(2, 'Japones'),
+(3, 'Mexicano'),
+(4, 'Padaria'),
+(5, 'Hamburgueria');
 
--- -----------------------------------------------------
--- Table `TIPOUSUARIO`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `TIPOUSUARIO` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `NOME` VARCHAR(45) NULL,
-  PRIMARY KEY (`ID`))
-ENGINE = InnoDB;
+-- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `foto`
+--
 
--- -----------------------------------------------------
--- Table `USUARIO`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `USUARIO` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `NOME` VARCHAR(100) NOT NULL,
-  `EMAIL` VARCHAR(100) NOT NULL,
-  `SENHA` VARCHAR(45) NOT NULL,
-  `TIPOUSUARIO_ID` INT NOT NULL,
-  PRIMARY KEY (`ID`, `TIPOUSUARIO_ID`),
-  UNIQUE INDEX `EMAIL_UNIQUE` (`EMAIL` ASC),
-  INDEX `fk_USUARIO_TIPOUSUARIO1_idx` (`TIPOUSUARIO_ID` ASC),
-  CONSTRAINT `fk_USUARIO_TIPOUSUARIO1`
-    FOREIGN KEY (`TIPOUSUARIO_ID`)
-    REFERENCES `TIPOUSUARIO` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+CREATE TABLE `foto` (
+  `ID` int(11) NOT NULL,
+  `URL` varchar(100) DEFAULT NULL,
+  `RESTAURANTE_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
 
--- -----------------------------------------------------
--- Table `AVALIACAO`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `AVALIACAO` (
-  `USUARIO_ID` INT NOT NULL,
-  `USUARIO_TIPOUSUARIO_ID` INT NOT NULL,
-  `RESTAURANTE_ID` INT NOT NULL,
-  `ID` VARCHAR(45) NOT NULL,
-  `ESTRELAS` INT NULL,
-  `COMENTARIO` VARCHAR(255) NULL,
-  PRIMARY KEY (`USUARIO_ID`, `USUARIO_TIPOUSUARIO_ID`, `RESTAURANTE_ID`, `ID`),
-  INDEX `fk_USUARIO_has_RESTAURANTE_RESTAURANTE1_idx` (`RESTAURANTE_ID` ASC),
-  INDEX `fk_USUARIO_has_RESTAURANTE_USUARIO1_idx` (`USUARIO_ID` ASC, `USUARIO_TIPOUSUARIO_ID` ASC),
-  CONSTRAINT `fk_USUARIO_has_RESTAURANTE_USUARIO1`
-    FOREIGN KEY (`USUARIO_ID` , `USUARIO_TIPOUSUARIO_ID`)
-    REFERENCES `USUARIO` (`ID` , `TIPOUSUARIO_ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_USUARIO_has_RESTAURANTE_RESTAURANTE1`
-    FOREIGN KEY (`RESTAURANTE_ID`)
-    REFERENCES `RESTAURANTE` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+--
+-- Estrutura da tabela `restaurante`
+--
 
+CREATE TABLE `restaurante` (
+  `ID` int(11) NOT NULL,
+  `NOME` varchar(100) NOT NULL,
+  `DESCRICAO` varchar(255) DEFAULT NULL,
+  `CEP` varchar(9) NOT NULL,
+  `LOGRADOURO` varchar(90) NOT NULL,
+  `BAIRRO` varchar(50) NOT NULL,
+  `NUMERO` int(11) NOT NULL,
+  `HORARIO` varchar(45) NOT NULL,
+  `TELEFONE1` varchar(24) NOT NULL,
+  `TELEFONE2` varchar(24) NOT NULL,
+  `FACEBOOK` varchar(100) NOT NULL,
+  `INSTAGRAM` varchar(100) NOT NULL,
+  `IFOOD` varchar(100) NOT NULL,
+  `FOTO` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `restaurante_has_categoria`
+--
+
+CREATE TABLE `restaurante_has_categoria` (
+  `RESTAURANTE_ID` int(11) NOT NULL,
+  `CATEGORIA_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tipousuario`
+--
+
+CREATE TABLE `tipousuario` (
+  `ID` int(11) NOT NULL,
+  `NOME` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tipousuario`
+--
+
+INSERT INTO `tipousuario` (`ID`, `NOME`) VALUES
+(1, 'Administrador'),
+(2, 'Propietario'),
+(3, 'Gerente'),
+(4, 'Usuario');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `ID` int(11) NOT NULL,
+  `NOME` varchar(100) NOT NULL,
+  `EMAIL` varchar(100) NOT NULL,
+  `SENHA` varchar(45) NOT NULL,
+  `TIPOUSUARIO_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`ID`, `NOME`, `EMAIL`, `SENHA`, `TIPOUSUARIO_ID`) VALUES
+(1, 'Rennan', 'rennan.guilherme63@gmail.com', '202cb962ac59075b964b07152d234b70', 1);
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `avaliacao`
+--
+ALTER TABLE `avaliacao`
+  ADD PRIMARY KEY (`USUARIO_ID`,`USUARIO_TIPOUSUARIO_ID`,`RESTAURANTE_ID`,`ID`),
+  ADD KEY `fk_USUARIO_has_RESTAURANTE_RESTAURANTE1_idx` (`RESTAURANTE_ID`),
+  ADD KEY `fk_USUARIO_has_RESTAURANTE_USUARIO1_idx` (`USUARIO_ID`,`USUARIO_TIPOUSUARIO_ID`);
+
+--
+-- Índices para tabela `categoria`
+--
+ALTER TABLE `categoria`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Índices para tabela `foto`
+--
+ALTER TABLE `foto`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `fk_FOTO_RESTAURANTE1_idx` (`RESTAURANTE_ID`);
+
+--
+-- Índices para tabela `restaurante`
+--
+ALTER TABLE `restaurante`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Índices para tabela `restaurante_has_categoria`
+--
+ALTER TABLE `restaurante_has_categoria`
+  ADD PRIMARY KEY (`RESTAURANTE_ID`,`CATEGORIA_ID`),
+  ADD KEY `fk_RESTAURANTE_has_CATEGORIA_CATEGORIA1_idx` (`CATEGORIA_ID`),
+  ADD KEY `fk_RESTAURANTE_has_CATEGORIA_RESTAURANTE1_idx` (`RESTAURANTE_ID`);
+
+--
+-- Índices para tabela `tipousuario`
+--
+ALTER TABLE `tipousuario`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Índices para tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`ID`,`TIPOUSUARIO_ID`),
+  ADD UNIQUE KEY `EMAIL_UNIQUE` (`EMAIL`),
+  ADD KEY `fk_USUARIO_TIPOUSUARIO1_idx` (`TIPOUSUARIO_ID`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de tabela `restaurante`
+--
+ALTER TABLE `restaurante`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `tipousuario`
+--
+ALTER TABLE `tipousuario`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `avaliacao`
+--
+ALTER TABLE `avaliacao`
+  ADD CONSTRAINT `fk_USUARIO_has_RESTAURANTE_RESTAURANTE1` FOREIGN KEY (`RESTAURANTE_ID`) REFERENCES `restaurante` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_USUARIO_has_RESTAURANTE_USUARIO1` FOREIGN KEY (`USUARIO_ID`,`USUARIO_TIPOUSUARIO_ID`) REFERENCES `usuario` (`ID`, `TIPOUSUARIO_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `foto`
+--
+ALTER TABLE `foto`
+  ADD CONSTRAINT `fk_FOTO_RESTAURANTE1` FOREIGN KEY (`RESTAURANTE_ID`) REFERENCES `restaurante` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `restaurante_has_categoria`
+--
+ALTER TABLE `restaurante_has_categoria`
+  ADD CONSTRAINT `fk_RESTAURANTE_has_CATEGORIA_CATEGORIA1` FOREIGN KEY (`CATEGORIA_ID`) REFERENCES `categoria` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_RESTAURANTE_has_CATEGORIA_RESTAURANTE1` FOREIGN KEY (`RESTAURANTE_ID`) REFERENCES `restaurante` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `fk_USUARIO_TIPOUSUARIO1` FOREIGN KEY (`TIPOUSUARIO_ID`) REFERENCES `tipousuario` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
