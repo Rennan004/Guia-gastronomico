@@ -22,7 +22,7 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO RESTAURANTE (NOME, DESCRICAO, CEP, LOGRADOURO, BAIRRO, NUMERO, HORARIO, TELEFONE1, TELEFONE2, FACEBOOK, INSTRAGAM, IFOOD, FOTO) VALUES (:a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k, :l, :m)');
+                $stmt = $pdo->prepare('INSERT INTO RESTAURANTE (NOME, DESCRICAO, CEP, LOGRADOURO, BAIRRO, NUMERO, HORARIO, TELEFONE1, TELEFONE2, FACEBOOK, INSTAGRAM, IFOOD, FOTO) VALUES (:a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k, :l, :m)');
                 $stmt->execute(array(
                     //':a' => utf8_decode($requestData['RESTAURANTE'])
                     ':a' => $requestData['NOME'],
@@ -35,7 +35,7 @@
                     ':h' => $requestData['TELEFONE1'],
                     ':i' => $requestData['TELEFONE2'],
                     ':j' => $requestData['FACEBOOK'],
-                    ':k' => $requestData['INSTRAGAM'],
+                    ':k' => $requestData['INSTAGRAM'],
                     ':l' => $requestData['IFOOD'],
                     ':m' => $requestData['FOTO']
                 ));
@@ -67,7 +67,7 @@
                      ':h' => $requestData['TELEFONE1'],
                      ':i' => $requestData['TELEFONE2'],
                      ':j' => $requestData['FACEBOOK'],
-                     ':k' => $requestData['INSTRAGAM'],
+                     ':k' => $requestData['INSTAGRAM'],
                      ':l' => $requestData['IFOOD'],
                      ':m' => $requestData['FOTO']
                 ));

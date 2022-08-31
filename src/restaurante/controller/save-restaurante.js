@@ -8,16 +8,19 @@ $(document).ready(function() {
     $('.btn-save').click(function(e) {
         e.preventDefault()
 
-        let dados = $('#form-restaurante').serialize()
-
-        dados += `&operacao=${$('.btn-save').attr('data-operation')}`
+        var formData = new FormData(document.getElementById("form-restaurante"))
+        formData.append('operacao', $('.btn-save').attr('data-operation'))
 
         $.ajax({
             type: 'POST',
             dataType: 'json',
             assync: true,
-            data: dados,
+            data: formData,
+            mineType: "multipart/form-data",
             url: 'src/restaurante/model/save-restaurante.php',
+            contentType: false,
+            cache: false,
+            processData: false,
             success: function(dados) {
                 Swal.fire({
                     title: 'Sistema de rifas',

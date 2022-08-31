@@ -1,4 +1,4 @@
-<form id="form-restaurante">
+<form id="form-restaurante" enctype="multipart/form-data">
     <div class="form-group">
         <label>Nome</label>
         <input type="text" name="NOME" id="NOME" class="form-control">
@@ -7,9 +7,6 @@
         <div class="col-12 col-sm-6 col-md-6">
             <label>Foto</label>
             <input type="file" name="FOTO" id="FOTO" class="">
-        </div>
-        <div class="col-12 col-sm-6 col-md-6">
-            <input class="submit-cep" type="submit" value="PROCURAR">
         </div>
     </div>
     <div class="form-group row">
@@ -53,7 +50,7 @@
     <div class="form-group row">
         <div class="col-12 col-sm-12 col-md-12">
             <label>Descrição</label>
-            <textarea class="form-control" id="DESCRICAO" rows="3"></textarea>
+            <textarea class="form-control" name="DESCRICAO" id="DESCRICAO" rows="3"></textarea>
         </div>
     </div>
     <div class="form-group row">
