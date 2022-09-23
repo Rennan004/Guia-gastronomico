@@ -10,7 +10,7 @@
     //Obter as colunas vindas do resquest
     $colunas = $requestData['columns'];
 
-    //Preparar o comando sql para obter os dados da RESTAURANTE
+    //Preparar o comando sql para obter os dados da categoria
     $sql = "SELECT ID, NOME FROM RESTAURANTE WHERE 1=1 ";
 
     //Obter o total de registros cadastrados
@@ -32,7 +32,7 @@
     
     //Obter valores para ORDER BY      
     $colunaOrdem = $requestData['order'][0]['column']; //Obtém a posição da coluna na ordenação
-    $ordem = $colunas[$colunaOrdem]['data']; //Obtém o RESTAURANTE da coluna para a ordenação
+    $ordem = $colunas[$colunaOrdem]['data']; //Obtém o nome da coluna para a ordenação
     $direcao = $requestData['order'][0]['dir']; //Obtém a direção da ordenação
     
     //Obter valores para o LIMIT
