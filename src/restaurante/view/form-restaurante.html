@@ -57,7 +57,7 @@
             <input type="text" name="FACEBOOK" id="FACEBOOK" class="form-control">
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row justify-content-center">
         <div class="col-12 col-sm-6 col-md-6">
             <label>Instagram</label>
             <input type="text" name="INSTAGRAM" id="INSTAGRAM" class="form-control">
@@ -66,10 +66,63 @@
             <label>Ifood</label>
             <input type="text" name="IFOOD" id="IFOOD" class="form-control">
         </div>
-        <div class="col-12 col-sm-6 col-md-6">
+        <div class="col-12 col-sm-6 col-md-6 text-center">
             <label>Foto</label>
-            <input type="file" name="FOTO[]" id="FOTO" class="form-control">
+            <div class="input-file-upload">
+                <div class="upload-btn">
+                    <button class="botao-file">
+                        Selecionar o arquivo
+                    </button>
+                    <input type="file" name="FOTO[]" id="FOTO" onchange="readURL(this); " class="form-control ">
+                    <img class="upload_img" id="file_upload">
+                </div>
+            </div>
         </div>
-    </div>
-    <input type="hidden" name="ID" id="ID">
+        <input type="hidden" name="ID" id="ID">
 </form>
+
+<style>
+    .botao-file {
+        width: 250px;
+        height: 40px;
+        border: none;
+        border-radius: 3rem;
+        background: #dc3545;
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+    }
+    
+    .upload-btn input[type=file] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+    
+    .upload_img {
+        display: inline-block;
+        border: 3px solid rgb(0, 0, 0);
+        width: 400px;
+        height: 240px;
+        border-radius: 10px;
+        object-fit: cover;
+        object-position: 50% 50%;
+        vertical-align: middle;
+        margin-top: 20px;
+    }
+</style>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#file_upload')
+                    .attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
