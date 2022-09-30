@@ -24,10 +24,11 @@ $(document).ready(function() {
                     $('.modal-body').load('src/restaurante/view/form-restaurante.html', function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#NOME').attr('readonly', 'true')
-                        $('#img-atendente').attr('src', `src/atendente/model/fotos/${dado.dados.FOTO}`)
+                        $('#FOTO').attr('src', `src/restaurante/model/fotos/${dado.dados.FOTO}`)
                     })
                     $('.btn-save').hide()
                     $('#modal-restaurante').modal('show')
+
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
                         title: 'e-Rifa', // Título da janela SweetAler
