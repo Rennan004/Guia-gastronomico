@@ -8,7 +8,8 @@
 
 body {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    background: rgb(179, 32, 35);
+    background: rgb(194, 37, 37);
+    background: radial-gradient(circle, rgba(194, 37, 37, 1) 0%, rgba(128, 29, 31, 1) 6%, rgba(129, 38, 40, 1) 44%);
     overflow: hidden;
 }
 
@@ -206,7 +207,7 @@ label {
 
 label span {
     font-size: 12px;
-    color: #cfcfcf;
+    color: #000000;
     text-transform: uppercase;
 }
 
@@ -224,7 +225,7 @@ input {
     margin-top: 15px;
     text-align: center;
     font-size: 12px;
-    color: #cfcfcf;
+    color: #000000;
 }
 
 .submit {
