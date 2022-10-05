@@ -23,6 +23,18 @@ $(document).ready(function() {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/restaurante/view/form-restaurante.html', function() {
                         $('#NOME').val(dado.dados.NOME)
+                        $('#DESCRICAO').val(dado.dados.DESCRICAO)
+                        $('#CEP').val(dado.dados.CEP)
+                        $('#LOGRADOURO').val(dado.dados.LOGRADOURO)
+                        $('#BAIRRO').val(dado.dados.BAIRRO)
+                        $('#NUMERO').val(dado.dados.NUMERO)
+                        $('#HORARIO').val(dado.dados.HORARIO)
+                        $('#TELEFONE1').val(dado.dados.TELEFONE1)
+                        $('#TELEFONE2').val(dado.dados.TELEFONE2)
+                        $('#FACEBOOK').val(dado.dados.FACEBOOK)
+                        $('#INSTAGRAM').val(dado.dados.INSTAGRAM)
+                        $('#IFOOD').val(dado.dados.IFOOD)
+                        $('#FOTO').val(dado.dados.FOTO)
                         $('#ID').val(dado.dados.ID)
                     })
                     $('.btn-save').removeAttr('data-operation', 'insert')
