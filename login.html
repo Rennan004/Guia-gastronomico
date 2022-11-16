@@ -10,54 +10,55 @@
 </head>
 
 <body>
-
-    <div class="cont" style=" border: solid 0.5px rgb(51, 13, 13);; border-radius: 0.7rem; box-shadow: rgb(68, 3, 3) 3px 5px 5px;">
-        <div class="form sign-in">
-            <h2>Bem vindos</h2>
-            <label>
-      <span>Email</span>
-      <input type="email" />
-    </label>
-            <label>
-      <span>Senha</span>
-      <input type="password" />
-    </label>
-            <p class="forgot-pass">Esqueceu a senha?</p>
-            <button type="button" class="submit">Cadastre-se</button>
-
-        </div>
-        <div class="sub-cont">
-            <div class="img">
-                <div class="img__text m--up">
-                    <h2>Novo aqui?</h2>
-                    <p>Cadastre-se e tenha uma experiencia inesquecivel!</p>
-                </div>
-                <div class="img__text m--in">
-                    <h2>Já possui conta?</h2>
-                    <p>Entre com sua conta aqui!</p>
-                </div>
-                <div class="img__btn">
-                    <span class="m--up">Cadastrar</span>
-                    <span class="m--in">Entrar</span>
-                </div>
-            </div>
-            <div class="form sign-up">
-                <h2>Faça seu cadastro aqui</h2>
+    <form class="form-signin" id="form-login">
+        <div class="cont" style=" border: solid 0.5px rgb(51, 13, 13);; border-radius: 0.7rem; box-shadow: rgb(68, 3, 3) 3px 5px 5px;">
+            <div class="form sign-in">
+                <h2>Bem vindos</h2>
                 <label>
+      <span>Email</span>
+      <input type="email" class="form-control" name="EMAIL" id="EMAIL" placeholder="Usuario" required="" autofocus=""/>
+    </label>
+                <label>
+      <span>Senha</span>
+      <input type="password" id="SENHA" class="form-control mt-3" name="SENHA" placeholder="Senha" required=""/>
+    </label>
+    </form>
+    <p class="forgot-pass">Esqueceu a senha?</p>
+    <button type="button" class="submit">Cadastre-se</button>
+
+    </div>
+    <div class="sub-cont">
+        <div class="img">
+            <div class="img__text m--up">
+                <h2>Novo aqui?</h2>
+                <p>Cadastre-se e tenha uma experiencia inesquecivel!</p>
+            </div>
+            <div class="img__text m--in">
+                <h2>Já possui conta?</h2>
+                <p>Entre com sua conta aqui!</p>
+            </div>
+            <div class="img__btn">
+                <span class="m--up">Cadastrar</span>
+                <span class="m--in">Entrar</span>
+            </div>
+        </div>
+        <div class="form sign-up">
+            <h2>Faça seu cadastro aqui</h2>
+            <label>
         <span>Nome Completo</span>
         <input type="text" />
       </label>
-                <label>
+            <label>
         <span>Email</span>
         <input type="email" />
       </label>
-                <label>
+            <label>
         <span>Senha</span>
         <input type="password" />
       </label>
-                <button type="button" class="submit">Cadastrar-se</button>
-            </div>
+            <button type="button" class="submit">Cadastrar-se</button>
         </div>
+    </div>
     </div>
 
 
