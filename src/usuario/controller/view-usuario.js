@@ -23,9 +23,11 @@ $(document).ready(function() {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/usuario/view/form-usuario.html', function() {
                         $('#NOME').val(dado.dados.NOME)
-                        $('#CELULAR').val(dado.dados.CELULAR)
+                        $('#EMAIL').val(dado.dados.EMAIL)
+                        $('#SENHA').val(dado.dados.SENHA)
                         $('#NOME').attr('readonly', 'true')
-                        $('#CELULAR').attr('readonly', 'true')
+                        $('#EMAIL').attr('readonly', 'true')
+                        $('#SENHA').attr('readonly', 'true')
                     })
                     $('.btn-save').hide()
                     $('#modal-usuario').modal('show')

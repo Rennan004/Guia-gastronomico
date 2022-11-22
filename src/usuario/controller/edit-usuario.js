@@ -23,8 +23,10 @@ $(document).ready(function() {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/usuario/view/form-usuario.html', function() {
                         $('#NOME').val(dado.dados.NOME)
-                        $('#CELULAR').val(dado.dados.CELULAR)
+                        $('#EMAIL').val(dado.dados.EMAIL)
+                        $('#SENHA').val(dado.dados.SENHA)
                         $('#ID').val(dado.dados.ID)
+                        
                     })
                     $('.btn-save').removeAttr('data-operation', 'insert')
                     $('.btn-save').show()

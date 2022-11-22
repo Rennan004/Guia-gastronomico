@@ -1,17 +1,16 @@
 <?php
 
 
-// Obter a nossa conexão com o banco de dados
-include('../../conexao/conn.php');
+include("../../conexao/conn.php");
 
-// Obter os dados enviados do formulário via $_REQUEST
-$requestData = $_REQUEST;
+$sql = "SELECT * FROM RESTAURANTE";
 
+$resultado = $pdo->query($sql);
 
-$dados = array(
-    "NOME" => 'NOME',
-    "DESCRICACO" => 'DESCRICACO',
-    "FOTO" => 'FOTO'
-)
+if($resultado){
+    while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+        $dados[] = array_map(null, $row);
+    }
+}
 
 echo json_encode($dados);

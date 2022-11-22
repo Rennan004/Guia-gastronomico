@@ -1,4 +1,4 @@
-$('.submit-cep').on('click', function() {
+$('#CEP').focusout(function() {
     var numCep = $('#CEP').val()
     var url = "https://viacep.com.br/ws/" + numCep + "/json/"
 
@@ -8,10 +8,10 @@ $('.submit-cep').on('click', function() {
         datatype: "json",
 
         success: function(dados) {
-            $('#UF').val(dados.uf)
-            $('#CIDADE').val(dados.localidade)
-            $('#LOGRADOURO').val(dados.logradouro)
-            $('#BAIRRO').val(dados.bairro)
+            $('#UF').val(dados.UF)
+            $('#LOGRADOURO').val(dado.dados.LOGRADOURO)
+            $('#BAIRRO').val(dado.dados.BAIRRO)
+            $('#CIDADE').val(dado.dados.CIDADE)
         }
     })
 })
