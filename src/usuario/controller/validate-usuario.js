@@ -3,7 +3,7 @@ $(document).ready(function() {
         type: 'POST',
         dataType: 'json',
         assync: true,
-        url: 'src/vendedor/model/validate-vendedor.php',
+        url: 'src/usuario/model/validate-usuario.php',
         success: function(dados) {
             if (dados.tipo === 'success') {
                 Swal.fire({
@@ -13,7 +13,7 @@ $(document).ready(function() {
                     confirmButtonText: 'OK'
                 })
             } else {
-                $(location).attr('href', 'index.html');
+                $(location).attr('href', 'login.html');
             }
 
         }
