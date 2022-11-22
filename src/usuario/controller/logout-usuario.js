@@ -6,7 +6,7 @@ $(document).ready(function() {
             type: 'POST',
             dataType: 'json',
             assync: true,
-            url: 'src/vendedor/model/logout-vendedor.php',
+            url: 'src/usuario/model/logout-usuario.php',
             success: function(dados) {
                 Swal.fire({
                     title: 'Gerenciamento Rifas',

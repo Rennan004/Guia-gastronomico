@@ -12,7 +12,7 @@ $(document).ready(function() {
             dataType: 'json',
             assync: true,
             data: dados,
-            url: 'src/vendedor/model/login-vendedor.php',
+            url: 'src/usuario/model/login-usuario.php',
             success: function(dados) {
 
                 if (dados.tipo == 'success') {
