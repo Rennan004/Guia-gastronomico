@@ -48,16 +48,14 @@ $(document).ready(function() {
                         $('#INSTAGRAM').attr('readonly', 'true')
                         $('#IFOOD').attr('readonly', 'true')
                         $('#FOTO').attr('readonly', 'true')
-                        $('#FOTO').attr('src', `src/restaurante/model/fotos/${dado.dados.FOTO}`)
                     })
                     $('.btn-save').hide()
                     $('#modal-restaurante').modal('show')
-
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
                         title: 'e-Rifa', // Título da janela SweetAler
                         text: dado.mensagem, // Mensagem retornada do microserviço
-                        type: dado.tipo, // Tipo de retorno [success, info ou error]
+                        type: dado.tipo, // usuario de retorno [success, info ou error]
                         confirmButtonText: 'OK'
                     })
                 }

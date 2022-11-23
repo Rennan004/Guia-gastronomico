@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    // $('.teste').click(function(e) {
-    //     e.preventDefault()
+        // $('.teste').click(function(e) {
+        //     e.preventDefault()
 
 
         $('#retorno').empty()
@@ -11,7 +11,7 @@ $(document).ready(function() {
             assync: true,
             url: 'src/restaurante/model/retorno.php',
             success: function(dados) {
-                for(const dado of dados){
+                for (const dado of dados) {
                     $('#retorno-index').append(`
                     <div class="col-lg-6">
                             <div class="meeting-item">
@@ -36,4 +36,4 @@ $(document).ready(function() {
             }
         })
     })
-// })
+    // })

@@ -35,7 +35,6 @@ $(document).ready(function() {
                         $('#INSTAGRAM').val(dado.dados.INSTAGRAM)
                         $('#IFOOD').val(dado.dados.IFOOD)
                         $('#FOTO').val(dado.dados.FOTO)
-                        $('#ID').val(dado.dados.ID)
                     })
                     $('.btn-save').removeAttr('data-operation', 'insert')
                     $('.btn-save').show()

@@ -4,15 +4,15 @@ $('#CEP').focusout(function(e) {
     var url = "https://viacep.com.br/ws/" + numCep + "/json/"
 
     $.ajax({
-        url: url,
+        url: '../view/form-restaurante.html',
         type: "get",
         datatype: "json",
 
-        success: function(dados) {
-            $('#UF').val(dados.uf)
-            $('#CIDADE').val(dados.localidade)
-            $('#LOGRADOURO').val(dados.logradouro)
-            $('#BAIRRO').val(dados.bairro)
+        success: function(dado) {
+            $('#UF').val(dado.uf)
+            $('#CIDADE').val(dado.localidade)
+            $('#LOGRADOURO').val(dado.logradouro)
+            $('#BAIRRO').val(dado.bairro)
         }
     })
 })
