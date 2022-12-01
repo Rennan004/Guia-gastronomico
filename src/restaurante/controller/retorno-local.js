@@ -3,7 +3,7 @@ $(document).ready(function() {
         //     e.preventDefault()
 
 
-        $('#retorno').empty()
+        $('#retorno-local').empty()
 
         $.ajax({
             type: 'POST',
@@ -12,7 +12,7 @@ $(document).ready(function() {
             url: 'src/restaurante/model/retorno.php',
             success: function(dados) {
                 for (const dado of dados) {
-                    $('#retorno').append(`
+                    $('#retorno-local').append(`
                     <div class="meeting-single-item">
                                 <div class="thumb">
                                     <img src="src/restaurante/model/fotos/${dado.FOTO}" id="FOTO">
