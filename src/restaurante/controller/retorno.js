@@ -13,13 +13,13 @@ $(document).ready(function() {
             success: function(dados) {
                 for (const dado of dados) {
                     $('#retorno').append(`
-                    <div class="col-lg-4 templatemo-item-col all soon restaurante" id="${dado.ID}">
+                    <div class="col-lg-4 templatemo-item-col all soon ">
                     <div class="meeting-item">
                         <div class="thumb">
-                            <a href="local.html" class="cardzinho"><img src="src/restaurante/model/fotos/${dado.FOTO}" alt=""></a>
+                            <a href="" class="cardzinho "><img src="src/restaurante/model/fotos/${dado.FOTO}" alt=""></a>
                         </div>
                         <div class="down-content">
-                            <a href="local.html" class="cardzinho">
+                            <a href=""  id="${dado.ID}" class="cardzinho restaurante">
                                 <h4>${dado.NOME}</h4>
                             </a>
                             <p>${dado.DESCRICAO}.</p>

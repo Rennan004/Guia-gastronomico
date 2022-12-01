@@ -1,18 +1,22 @@
 $(document).ready(function() {
-    $('.restaurante').click(function(e) {
+    $('#retorno').on('click', 'a.restaurante', function(e) {
+        console.log('babana')
         e.preventDefault()
 
+        let ID = `ID=${$(this).attr('id')}`
 
-        $('#retorno-local').empty()
+        $('#retorno').empty()
+        $('.pagination').empty()
 
         $.ajax({
             type: 'POST',
             dataType: 'JSON',
             assync: true,
+            data: ID,
             url: 'src/restaurante/model/retorno-local.php',
             success: function(dados) {
                 for (const dado of dados) {
-                    $('#retorno-local').append(`
+                    $('#retorno').append(`
                     <div class="meeting-single-item">
                                 <div class="thumb">
                                     <img src="src/restaurante/model/fotos/${dado.FOTO}" id="FOTO">
@@ -56,7 +60,12 @@ $(document).ready(function() {
                                                     <li><a href="${dado.INSTAGRAM}">Instagram</a>,</li>
                                                 </ul>
                                             </div>
-                                        </div>`)
+                                        </div>
+                                        <div class="col-lg-12">
+                <div class="main-button-red">
+                    <a href="gastronomia.html">Voltar</a>
+                </div>
+            </div>`)
                 }
             }
         })
