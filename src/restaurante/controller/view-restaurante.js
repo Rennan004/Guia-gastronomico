@@ -27,6 +27,8 @@ $(document).ready(function() {
                         $('#CEP').val(dado.dados.CEP)
                         $('#LOGRADOURO').val(dado.dados.LOGRADOURO)
                         $('#BAIRRO').val(dado.dados.BAIRRO)
+                        $('#CIDADE').val(dado.dados.CIDADE)
+                        $('#UF').val(dado.dados.UF)
                         $('#NUMERO').val(dado.dados.NUMERO)
                         $('#HORARIO').val(dado.dados.HORARIO)
                         $('#TELEFONE1').val(dado.dados.TELEFONE1)
