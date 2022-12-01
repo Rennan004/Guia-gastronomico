@@ -1,6 +1,6 @@
 $(document).ready(function() {
-        // $('.teste').click(function(e) {
-        //     e.preventDefault()
+    $('.restaurante').click(function(e) {
+        e.preventDefault()
 
 
         $('#retorno-local').empty()
@@ -9,7 +9,7 @@ $(document).ready(function() {
             type: 'POST',
             dataType: 'JSON',
             assync: true,
-            url: 'src/restaurante/model/retorno.php',
+            url: 'src/restaurante/model/retorno-local.php',
             success: function(dados) {
                 for (const dado of dados) {
                     $('#retorno-local').append(`
@@ -61,4 +61,4 @@ $(document).ready(function() {
             }
         })
     })
-    // })
+})
