@@ -7,6 +7,7 @@ $(document).ready(function() {
 
         $('#retorno').empty()
         $('.pagination').empty()
+        $('.filters').empty()
 
         $.ajax({
             type: 'POST',
@@ -17,6 +18,11 @@ $(document).ready(function() {
             success: function(dados) {
                 for (const dado of dados) {
                     $('#retorno').append(`
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-12">
                     <div class="meeting-single-item">
                                 <div class="thumb">
                                     <img src="src/restaurante/model/fotos/${dado.FOTO}" id="FOTO">
@@ -48,7 +54,7 @@ $(document).ready(function() {
                                         <div class="col-lg-4">
                                             <div class="book now" id="TELEFONE">
                                                 <h5>Telefone</h5>
-                                                <p id="telefone">${dado.TELEFONE1}</p><br>
+                                                <p id="telefone">${dado.TELEFONE1}</p>
                                                 <p id="telefone">${dado.TELEFONE2}</p>
                                             </div>
                                         </div>
@@ -60,6 +66,8 @@ $(document).ready(function() {
                                                     <li><a href="${dado.INSTAGRAM}">Instagram</a>,</li>
                                                 </ul>
                                             </div>
+                                        </div>
+                                        </div>
                                         </div>
                                         <div class="col-lg-12">
                 <div class="main-button-red">
