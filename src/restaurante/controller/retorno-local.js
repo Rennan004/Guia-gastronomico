@@ -1,6 +1,5 @@
 $(document).ready(function() {
     $('#retorno').on('click', 'a.restaurante', function(e) {
-        console.log('babana')
         e.preventDefault()
 
         let ID = `ID=${$(this).attr('id')}`
@@ -25,7 +24,7 @@ $(document).ready(function() {
                         <div class="col-lg-12">
                     <div class="meeting-single-item">
                                 <div class="thumb">
-                                    <img src="src/restaurante/model/fotos/${dado.FOTO}" id="FOTO">
+                                    <img src="src/restaurante/model/fotos/${dado.FOTO}" id="FOTO" style="height: 30rem; background-size: cover;">
                                 </div>
                                 <div class="down-content">
 

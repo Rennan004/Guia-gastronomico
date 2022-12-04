@@ -18,7 +18,7 @@ $(document).ready(function() {
                                 
                         
                                     <div class="thumb">
-                                    <a href="" class="cardzinho"><img src="src/restaurante/model/fotos/${dado.FOTO}" alt=""></a>
+                                    <a href="" class="cardzinho"><img src="src/restaurante/model/fotos/${dado.FOTO}" alt="" style="height: 13rem;"></a>
                                 </div>
                                 
                                 <div class="down-content">

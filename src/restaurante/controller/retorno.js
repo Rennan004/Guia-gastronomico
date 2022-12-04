@@ -16,7 +16,7 @@ $(document).ready(function() {
                     <div class="col-lg-4 templatemo-item-col all soon ">
                     <div class="meeting-item">
                         <div class="thumb">
-                            <a href="" class="cardzinho "><img src="src/restaurante/model/fotos/${dado.FOTO}" alt=""></a>
+                            <a href="" class="cardzinho "><img src="src/restaurante/model/fotos/${dado.FOTO}" style="height: 13rem;" alt=""></a>
                         </div>
                         <div class="down-content">
                             <a href=""  id="${dado.ID}" class="cardzinho restaurante">
