@@ -7,7 +7,21 @@ $(document).ready(function() {
 
         $('.modal-title').append('Adicionar novo restaurante de restaurante')
 
-        $('.modal-body').load('src/restaurante/view/form-restaurante.html')
+
+        $('.modal-body').load('src/restaurante/view/form-restaurante.html', function() {
+            $.ajax({
+                dataType: 'json',
+                type: 'POST',
+                assync: true,
+                url: 'src/categoria/model/all-categoria.php',
+                success: function(dados) {
+                    for (const result of dados) {
+                        $('#TIPOUSUARIO_ID').append(`
+                        <option value="${result.ID}">${result.NOME}</option>`)
+                    }
+                }
+            })
+        })
 
         $('.btn-save').show()
 

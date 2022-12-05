@@ -3,9 +3,10 @@
 
 include("../../conexao/conn.php");
 
-$sql = "SELECT * FROM RESTAURANTE COUNT";
+$sql = "SELECT COUNT(ID) FROM USUARIO"
 
 $resultado = $pdo->query($sql);
+$contador = $resultado->rowCount();
 
 if($resultado){
     while($row = $resultado->fetch(PDO::FETCH_ASSOC)){

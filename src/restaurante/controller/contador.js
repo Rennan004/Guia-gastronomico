@@ -13,10 +13,7 @@ $(document).ready(function() {
             success: function(dados) {
                 for (const dado of dados) {
                     $('#contadores').append(`
-                <section class="our-facts">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
+                    <div class="col-lg-12">
                     <div class="row">
                         <div class="col-lg-12">
                             <h2>Veja a quantidade de usuarios de nosso site</h2>
@@ -54,11 +51,7 @@ $(document).ready(function() {
                             </div>
                         </div>
                     </div>
-                </div>
-
-            </div>
-        </div>
-    </section>`)
+                </div>`)
                 }
             }
         })
