@@ -7,7 +7,7 @@ $(document).ready(function() {
         let ID = `ID=${$(this).attr('id')}`
 
         Swal.fire({
-            title: 'Sistema de rifas',
+            title: 'Guia Gastronomico',
             text: "Deseja realmente excluir esse registro?",
             icon: 'question',
             showCancelButton: true,
@@ -24,7 +24,7 @@ $(document).ready(function() {
                     url: 'src/tipo/model/delete-tipo.php',
                     success: function(dados) {
                         Swal.fire({
-                            title: 'Sistema de Rifas',
+                            title: 'Guia Gastronomico',
                             text: dados.mensagem,
                             icon: dados.tipo,
                             confirmButtonText: 'OK'

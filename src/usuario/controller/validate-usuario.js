@@ -8,7 +8,7 @@ $(document).ready(function() {
         success: function(dados) {
             if (dados.tipo == 'success'){
             Swal.fire({
-                title: 'e-Rifa',
+                title: 'Guia Gastronomico',
                 text: dados.mensagem,
                 icon: dados.tipo,
                 confirmButtonText: 'OK'

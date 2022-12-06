@@ -33,7 +33,7 @@ $(document).ready(function() {
                     $('#modal-usuario').modal('show')
                 } else {
                     Swal.fire({ // Inicialização do SweetAlert
-                        title: 'Sistema de Rifas', // Título da janela SweetAlert
+                        title: 'Guia Gastronomico', // Título da janela SweetAlert
                         text: dado.mensagem, // Mensagem retornada do microserviço
                         type: dado.tipo, // usuario de retorno [success, info ou error]
                         confirmButtonText: 'OK'

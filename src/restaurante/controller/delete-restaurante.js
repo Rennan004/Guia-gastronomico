@@ -24,7 +24,7 @@ $(document).ready(function() {
                     url: 'src/restaurante/model/delete-restaurante.php',
                     success: function(dados) {
                         Swal.fire({
-                            title: 'Sistema de Rifas',
+                            title: 'Guia Gastronomico',
                             text: dados.mensagem,
                             icon: dados.tipo,
                             confirmButtonText: 'OK'

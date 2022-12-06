@@ -20,7 +20,7 @@ $(document).ready(function() {
             url: 'src/categoria/model/save-categoria.php',
             success: function(dados) {
                 Swal.fire({
-                    title: 'Sistema de rifas',
+                    title: 'Guia Gastronomico',
                     text: dados.mensagem,
                     icon: dados.tipo,
                     confirmButtonText: 'OK'

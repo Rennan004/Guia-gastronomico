@@ -7,7 +7,7 @@ $(document).ready(function() {
         let ID = `ID=${$(this).attr('id')}`
 
         Swal.fire({
-            title: 'Sistema de rifas',
+            title: 'Guia Gastronomico',
             text: "Deseja realmente excluir esse registro?",
             icon: 'question',
             showCancelButton: true,
