@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form class="form-signin" id="form-login">
+    <form class="form-signin" id="form-signin">
         <div class="cont" style=" border: solid 0.5px rgb(51, 13, 13);; border-radius: 0.7rem; box-shadow: rgb(68, 3, 3) 3px 5px 5px;">
             <div class="form sign-in">
                 <h2>Bem vindos</h2>
@@ -24,7 +24,7 @@
     </label>
     </form>
     <p class="forgot-pass">Esqueceu a senha?</p>
-    <button type="button" class="submit"><a href="index.html" style="text-decoration: none; color: #fff;">Entrar</a></button>
+    <button type="button" class="btn-login">Login</button>
 
     </div>
     <div class="sub-cont">
@@ -65,7 +65,12 @@
 
     <!--Esqueceu a senha-->
 
+    <script src="libs/vendor/bootstrap/js/jquery-3.6.0.js"></script>
+    <script src="libs/sweetAlert/dist/sweetalert2.js"></script>
     <script src="libs/assets/js/script.js"></script>
+    <script src="src/usuario/controller/login-usuario.js"></script>
+    <script src="src/usuario/controller/logout-usuario.js"></script>
+
 </body>
 
 </html>

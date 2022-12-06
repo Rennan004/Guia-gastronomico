@@ -9,7 +9,7 @@ $(document).ready(function() {
             url: 'src/usuario/model/logout-usuario.php',
             success: function(dados) {
                 Swal.fire({
-                    title: 'Gerenciamento Rifas',
+                    title: 'Guia gastronomico',
                     text: dados.mensagem,
                     icon: dados.tipo,
                     confirmButtonText: 'OK'
