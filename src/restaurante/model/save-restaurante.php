@@ -79,36 +79,57 @@
         } else {
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
+                if($FOTO['name'][0] != ""){
+                    $stmt = $pdo->prepare('UPDATE RESTAURANTE SET NOME = :a, DESCRICAO = :b, CEP = :c, LOGRADOURO = :d, BAIRRO = :e, NUMERO = :f, HORARIO = :g, TELEFONE1 = :h, TELEFONE2 = :i, FACEBOOK = :j,
+                    INSTAGRAM = :k, IFOOD = :l, FOTO = :m WHERE ID = :id');
+                    $stmt->execute(array(
+                        ':id' => $ID,
+                        ':a' => $requestData['NOME'],
+                        ':b' => $requestData['DESCRICAO'],
+                        ':c' => $requestData['CEP'],
+                        ':d' => $requestData['LOGRADOURO'],
+                        ':e' => $requestData['BAIRRO'],
+                        ':f' => $requestData['NUMERO'],
+                        ':g' => $requestData['HORARIO'],
+                        ':h' => $requestData['TELEFONE1'],
+                        ':i' => $requestData['TELEFONE2'],
+                        ':j' => $requestData['FACEBOOK'],
+                        ':k' => $requestData['INSTAGRAM'],
+                        ':l' => $requestData['IFOOD'],
+                        ':m' => $novo_nome[0].".".$EXTENSION[0]           
+                ));
+
+                } else {
                 $stmt = $pdo->prepare('UPDATE RESTAURANTE SET NOME = :a, DESCRICAO = :b, CEP = :c, LOGRADOURO = :d, BAIRRO = :e, NUMERO = :f, HORARIO = :g, TELEFONE1 = :h, TELEFONE2 = :i, FACEBOOK = :j,
-                INSTAGRAM = :k, IFOOD = :l, FOTO = :m WHERE ID = :id');
+                INSTAGRAM = :k, IFOOD = :l WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
-                     //':a' => utf8_decode($requestData['RESTAURANTE'])
-                     ':a' => $requestData['NOME'],
-                     ':b' => $requestData['DESCRICAO'],
-                     ':c' => $requestData['CEP'],
-                     ':d' => $requestData['LOGRADOURO'],
-                     ':e' => $requestData['BAIRRO'],
-                     ':f' => $requestData['NUMERO'],
-                     ':g' => $requestData['HORARIO'],
-                     ':h' => $requestData['TELEFONE1'],
-                     ':i' => $requestData['TELEFONE2'],
-                     ':j' => $requestData['FACEBOOK'],
-                     ':k' => $requestData['INSTAGRAM'],
-                     ':l' => $requestData['IFOOD'],
-                     ':m' => $novo_nome[0].".".$EXTENSION[0]
-                ));
+                        ':a' => $requestData['NOME'],
+                        ':b' => $requestData['DESCRICAO'],
+                        ':c' => $requestData['CEP'],
+                        ':d' => $requestData['LOGRADOURO'],
+                        ':e' => $requestData['BAIRRO'],
+                        ':f' => $requestData['NUMERO'],
+                        ':g' => $requestData['HORARIO'],
+                        ':h' => $requestData['TELEFONE1'],
+                        ':i' => $requestData['TELEFONE2'],
+                        ':j' => $requestData['FACEBOOK'],
+                        ':k' => $requestData['INSTAGRAM'],
+                        ':l' => $requestData['IFOOD']                
+                ));}
+                
                 $dados = array(
                     "tipo" => 'success',
-                    "mensagem" => 'Registro atualizado com sucesso.'
+                    "mensagem" => 'Registro atualizado com sucesso.',
+                    "id" => $FOTO['name'],
                 );
             } catch (PDOException $e) {
                 $dados = array(
                     "tipo" => 'error',
                     "mensagem" => 'Não foi possível efetuar o alteração do registro.'.$e
                 );
-            }
-        }
+            }   
+        } 
     }
 
     // Converter um array ded dados para a representação JSON

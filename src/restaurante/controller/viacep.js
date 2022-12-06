@@ -1,10 +1,15 @@
 $('#CEP').focusout(function(e) {
     e.preventDefault()
-    var numCep = $('#CEP').val()
-    var url = "https://viacep.com.br/ws/" + numCep + "/json/"
+    var inspecial2 = $('#CEP').val();
+
+    var especial2 = inspecial2.replace(/[^\d]+/g, '')
+
+    var url = "https://viacep.com.br/ws/" + especial2 + "/json/"
+
+
 
     $.ajax({
-        url: '../view/form-restaurante.html',
+        url: url,
         type: "get",
         datatype: "json",
 

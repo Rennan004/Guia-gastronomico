@@ -1,3 +1,36 @@
+<style>
+    .botao-file {
+        width: 250px;
+        height: 40px;
+        border: none;
+        border-radius: 3rem;
+        background: #dc3545;
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+    }
+    
+    .upload-btn input[type=file] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+    
+    .upload_img {
+        display: inline-block;
+        border: 3px solid rgb(0, 0, 0);
+        width: 400px;
+        height: 240px;
+        border-radius: 10px;
+        object-fit: cover;
+        object-position: 50% 50%;
+        vertical-align: middle;
+        margin-top: 20px;
+    }
+</style>
+
 <form id="form-restaurante" enctype="multipart/form-data">
     <div class="form-group">
         <label>Nome</label>
@@ -38,7 +71,7 @@
         </div>
         <div class="col-12 col-sm-6 col-md-6">
             <label>Telefone 2</label>
-            <input type="text" name="TELEFONE2" id="TELEFONE2   " class="form-control">
+            <input type="text" name="TELEFONE2" id="CELULAR" class="form-control">
         </div>
     </div>
     <div class="form-group row">
@@ -66,7 +99,7 @@
             <label>Ifood</label>
             <input type="text" name="IFOOD" id="IFOOD" class="form-control">
         </div>
-        <div class="col-12 col-sm-6 col-md-6 text-center">
+        <div class="col-12 col-sm-6 col-md-6 text-center" id="content-foto">
             <button class="botao-file mt-3">FOTO</button>
             <div class="input-file-upload">
                 <div class="upload-btn">
@@ -76,41 +109,17 @@
             </div>
         </div>
 
+        <div class="olhar-foto">
+            
+        </div>
+
         <input type="hidden" name="ID" id="ID">
 </form>
 
-<style>
-    .botao-file {
-        width: 250px;
-        height: 40px;
-        border: none;
-        border-radius: 3rem;
-        background: #dc3545;
-        color: #fff;
-        font-size: 16px;
-        text-align: center;
-    }
-    
-    .upload-btn input[type=file] {
-        font-size: 100px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        opacity: 0;
-    }
-    
-    .upload_img {
-        display: inline-block;
-        border: 3px solid rgb(0, 0, 0);
-        width: 400px;
-        height: 240px;
-        border-radius: 10px;
-        object-fit: cover;
-        object-position: 50% 50%;
-        vertical-align: middle;
-        margin-top: 20px;
-    }
-</style>
+<script src="src/restaurante/controller/viacep.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script type="text/javascript" src="libs/assets/js/jquery.maskedinput-1.1.4.pack.js" ></script>
+<script src="libs/assets/js/jquery.maskMoney.js" type="text/javascript"></script>
 <script>
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -123,4 +132,19 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+</script>
+<script>
+    $(document).ready(function(){
+        $("#TELEFONE1").mask('99 99999-9999');
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $("#CELULAR").mask('99 99999-9999');
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $("#CEP").mask('99999-999');
+    });
 </script>

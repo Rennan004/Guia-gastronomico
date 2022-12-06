@@ -24,7 +24,7 @@ $(document).ready(function() {
                         <div class="col-lg-12">
                     <div class="meeting-single-item">
                                 <div class="thumb">
-                                    <img src="src/restaurante/model/fotos/${dado.FOTO}" id="FOTO" style="height: 30rem; background-size: cover;">
+                                    <img src="src/restaurante/model/fotos/${dado.FOTO}" id="FOTO" style="height: auto; background-size: cover; object-fit: cover;">
                                 </div>
                                 <div class="down-content">
 
