@@ -3,7 +3,7 @@
 
 include("../../conexao/conn.php");
 
- $sql = "SELECT COUNT(ID) AS QTD FROM RESTAURANTE";
+ $sql = "SELECT COUNT(ID) AS QTD FROM USUARIO";
 
 $resultado = $pdo->query($sql);
 
