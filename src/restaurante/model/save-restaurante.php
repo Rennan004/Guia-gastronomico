@@ -49,7 +49,7 @@
         if($operacao == 'insert'){
             // Prepara o comando INSERT para ser executado
             try{
-                $stmt = $pdo->prepare('INSERT INTO RESTAURANTE (NOME, DESCRICAO, CEP, LOGRADOURO, BAIRRO, NUMERO, HORARIO, TELEFONE1, TELEFONE2, FACEBOOK, INSTAGRAM, IFOOD, FOTO) VALUES (:a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k, :l, :m)');
+                $stmt = $pdo->prepare('INSERT INTO RESTAURANTE (NOME, DESCRICAO, CEP, LOGRADOURO, BAIRRO, NUMERO, HORARIO_IN, TELEFONE1, TELEFONE2, FACEBOOK, INSTAGRAM, IFOOD, HORARIO_FIM, FOTO, CIDADE, UF) VALUES (:a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k, :l, :m, :n, :o, :p)');
                 $stmt->execute(array(
                     //':a' => utf8_decode($requestData['RESTAURANTE'])
                     ':a' => $requestData['NOME'],
@@ -58,13 +58,18 @@
                     ':d' => $requestData['LOGRADOURO'],
                     ':e' => $requestData['BAIRRO'],
                     ':f' => $requestData['NUMERO'],
-                    ':g' => $requestData['HORARIO'],
+                    ':g' => $requestData['HORARIO_IN'],
+                    ':m' => $requestData['HORARIO_FIM'],
                     ':h' => $requestData['TELEFONE1'],
                     ':i' => $requestData['TELEFONE2'],
                     ':j' => $requestData['FACEBOOK'],
                     ':k' => $requestData['INSTAGRAM'],
                     ':l' => $requestData['IFOOD'],
-                    ':m' => $novo_nome[0].".".$EXTENSION[0]
+                    ':m' => $requestData['HORARIO_FIM'],
+                    ':n' => $novo_nome[0].".".$EXTENSION[0],
+                    ':o' => $requestData['CIDADE'],
+                    ':p' => $requestData['UF'],
+                    
                 ));
                 $dados = array(
                     "tipo" => 'success',
@@ -80,8 +85,8 @@
             // Se minha variável operação estiver vazia então devo gerar os scripts de update
             try{
                 if($FOTO['name'][0] != ""){
-                    $stmt = $pdo->prepare('UPDATE RESTAURANTE SET NOME = :a, DESCRICAO = :b, CEP = :c, LOGRADOURO = :d, BAIRRO = :e, NUMERO = :f, HORARIO = :g, TELEFONE1 = :h, TELEFONE2 = :i, FACEBOOK = :j,
-                    INSTAGRAM = :k, IFOOD = :l, FOTO = :m WHERE ID = :id');
+                    $stmt = $pdo->prepare('UPDATE RESTAURANTE SET NOME = :a, DESCRICAO = :b, CEP = :c, LOGRADOURO = :d, BAIRRO = :e, NUMERO = :f, HORARIO_IN = :g, TELEFONE1 = :h, TELEFONE2 = :i, FACEBOOK = :j,
+                    INSTAGRAM = :k, IFOOD = :l, HORARIO_FIM = :m, FOTO = :n, CIDADE = :o, UF = :p WHERE ID = :id');
                     $stmt->execute(array(
                         ':id' => $ID,
                         ':a' => $requestData['NOME'],
@@ -90,18 +95,22 @@
                         ':d' => $requestData['LOGRADOURO'],
                         ':e' => $requestData['BAIRRO'],
                         ':f' => $requestData['NUMERO'],
-                        ':g' => $requestData['HORARIO'],
+                        ':g' => $requestData['HORARIO_IN'],
                         ':h' => $requestData['TELEFONE1'],
                         ':i' => $requestData['TELEFONE2'],
                         ':j' => $requestData['FACEBOOK'],
                         ':k' => $requestData['INSTAGRAM'],
                         ':l' => $requestData['IFOOD'],
-                        ':m' => $novo_nome[0].".".$EXTENSION[0]           
+                        ':m' => $requestData['HORARIO_FIM'],
+                        ':n' => $novo_nome[0].".".$EXTENSION[0],
+                        ':o' => $requestData['CIDADE'],
+                        ':p' => $requestData['UF']
+                                
                 ));
 
                 } else {
-                $stmt = $pdo->prepare('UPDATE RESTAURANTE SET NOME = :a, DESCRICAO = :b, CEP = :c, LOGRADOURO = :d, BAIRRO = :e, NUMERO = :f, HORARIO = :g, TELEFONE1 = :h, TELEFONE2 = :i, FACEBOOK = :j,
-                INSTAGRAM = :k, IFOOD = :l WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE RESTAURANTE SET NOME = :a, DESCRICAO = :b, CEP = :c, LOGRADOURO = :d, BAIRRO = :e, NUMERO = :f, HORARIO_IN = :g, TELEFONE1 = :h, TELEFONE2 = :i, FACEBOOK = :j,
+                INSTAGRAM = :k, IFOOD = :l, HORARIO_FIM = :m, CIDADE = :o, UF = :p WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
                         ':a' => $requestData['NOME'],
@@ -110,12 +119,15 @@
                         ':d' => $requestData['LOGRADOURO'],
                         ':e' => $requestData['BAIRRO'],
                         ':f' => $requestData['NUMERO'],
-                        ':g' => $requestData['HORARIO'],
+                        ':g' => $requestData['HORARIO_IN'],
                         ':h' => $requestData['TELEFONE1'],
                         ':i' => $requestData['TELEFONE2'],
                         ':j' => $requestData['FACEBOOK'],
                         ':k' => $requestData['INSTAGRAM'],
-                        ':l' => $requestData['IFOOD']                
+                        ':l' => $requestData['IFOOD'],
+                        ':m' => $requestData['HORARIO_FIM'],
+                        ':o' => $requestData['CIDADE'],
+                        ':p' => $requestData['UF'],            
                 ));}
                 
                 $dados = array(

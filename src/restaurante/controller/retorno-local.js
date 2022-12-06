@@ -37,14 +37,14 @@ $(document).ready(function() {
                                         <div class="col-lg-4">
                                             <div class="hours">
                                                 <h5>Horario de funcionamento</h5>
-                                                <p id="ABERTURA">${dado.HORARIO}</p>
-                                                <p id="FECHAMENTO">${dado.HORARIO}</p>
+                                                <p id="ABERTURA">${dado.HORARIO_IN}</p>
+                                                <p id="FECHAMENTO">${dado.HORARIO_FIM}</p>
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="location" id="LOCALIZACAO_LOCAL">
                                                 <h5>Localização</h5>
-                                                <p id="endereco">${dado.LOGRADOURO},
+                                                <p id="endereco">${dado.LOGRADOURO}, ${dado.NUMERO},
                                                     <p id="CIDADE">${dado.CIDADE}</p>
                                                     <p id="ESTADO">${dado.UF}</p>
                                                     <p id="CEP">${dado.CEP}</p>
@@ -61,8 +61,9 @@ $(document).ready(function() {
                                             <div class="share">
                                                 <h5>Redes sociais:</h5>
                                                 <ul>
-                                                    <li><a href="${dado.FACEBOOK}">Facebook</a>,</li>
-                                                    <li><a href="${dado.INSTAGRAM}">Instagram</a>,</li>
+                                                    <li><a target="_blank" href="${dado.FACEBOOK}">Facebook</a>,</li>
+                                                    <li><a target="_blank" href="${dado.INSTAGRAM}">Instagram</a>,</li>
+                                                    <li><a target="_blank" href="${dado.IFOOD}">IFood</a>.</li>
                                                 </ul>
                                             </div>
                                         </div>
