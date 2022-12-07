@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31-Ago-2022 às 14:42
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Tempo de geração: 07-Dez-2022 às 12:33
+-- Versão do servidor: 10.4.20-MariaDB
+-- versão do PHP: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -82,6 +82,8 @@ CREATE TABLE `restaurante` (
   `DESCRICAO` varchar(255) DEFAULT NULL,
   `CEP` varchar(9) NOT NULL,
   `LOGRADOURO` varchar(90) NOT NULL,
+  `CIDADE` varchar(100) NOT NULL,
+  `UF` varchar(2) NOT NULL,
   `BAIRRO` varchar(50) NOT NULL,
   `NUMERO` int(11) NOT NULL,
   `HORARIO` varchar(45) NOT NULL,
