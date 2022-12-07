@@ -23,11 +23,25 @@ $(document).ready(function() {
                 if (dado.tipo == "success") {
                     $('.modal-body').load('src/usuario/view/form-usuario.html', function() {
                         $('#NOME').val(dado.dados.NOME)
-                        $('#EMAIL').val(dado.dados.EMAIL)
-                        $('#SENHA').val(dado.dados.SENHA)
                         $('#NOME').attr('readonly', 'true')
+                        $('#EMAIL').val(dado.dados.EMAIL)
                         $('#EMAIL').attr('readonly', 'true')
+                        $('#SENHA').val(dado.dados.SENHA)
                         $('#SENHA').attr('readonly', 'true')
+                        $('#TIPOUSUARIO_ID').empty()
+                        $.ajax({
+                            type: 'POST',
+                            dataType: 'json',
+                            url: 'src/tipo/model/all-tipo.php',
+                            success: function(dados) {
+                                for (const result of dados) {
+                                    if (dado.dados.TIPOUSUARIO_ID == result.ID) {
+                                        $('#TIPOUSUARIO_ID').append(`<option value="${result.ID}">${result.NOME}</option>`)
+                                    }
+                                }
+                            }
+                        })
+                        $('#TIPOUSUARIO_ID').attr('readonly', 'true')
                     })
                     $('.btn-save').hide()
                     $('#modal-usuario').modal('show')

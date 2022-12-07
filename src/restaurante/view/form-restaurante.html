@@ -9,7 +9,7 @@
         font-size: 16px;
         text-align: center;
     }
-    
+
     .upload-btn input[type=file] {
         font-size: 100px;
         position: absolute;
@@ -71,7 +71,7 @@
         </div>
         <div class="col-12 col-sm-6 col-md-6">
             <label>Telefone 2</label>
-            <input type="text" name="TELEFONE2" id="CELULAR" class="form-control">
+            <input type="text" name="TELEFONE2" id="TELEFONE2" class="form-control">
         </div>
     </div>
     <div class="form-group row">
@@ -93,7 +93,7 @@
             <label>Facebook</label>
             <input type="text" name="FACEBOOK" id="FACEBOOK" class="form-control">
         </div>
-    </div>
+        </div>
     <div class="form-group row justify-content-center">
         <div class="col-12 col-sm-6 col-md-6">
             <label>Instagram</label>
@@ -104,11 +104,10 @@
             <input type="text" name="IFOOD" id="IFOOD" class="form-control">
         </div>
         <div class="col-12 col-sm-6 col-md-6 text-center" id="content-foto">
-            <button class="botao-file mt-3">FOTO</button>
             <div class="input-file-upload">
                 <div class="upload-btn">
-                    <input type="file" name="FOTO[]" id="FOTO" onchange="readURL(this); " class="form-control">
                     <img class="upload_img" id="file_upload">
+                    <input type="file" name="FOTO[]" id="FOTO" onchange="readURL(this); " class="form-control">
                 </div>
             </div>
         </div>

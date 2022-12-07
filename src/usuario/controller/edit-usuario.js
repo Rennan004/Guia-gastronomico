@@ -25,8 +25,28 @@ $(document).ready(function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#EMAIL').val(dado.dados.EMAIL)
                         $('#SENHA').val(dado.dados.SENHA)
+                        $('#TIPOUSUARIO_ID').empty()
                         $('#ID').val(dado.dados.ID)
+
+                        var TTIPOUSUARIO_ID = dado.dados.TIPOUSUARIO_ID
                         
+                        $.ajax({
+                            dataType: 'json',
+                            type: 'POST',
+                            assync: true,
+                            url: 'src/tipo/model/all-tipo.php',
+                            success: function(dados) {
+                                for (const result of dados) {
+                                    if (result.ID == TIPOUSUARIO_ID) {
+                                        $('#TIPOUSUARIO_ID').append(`
+                                    <option value="${result.ID}" selected>${result.NOME}</option>`)
+                                    } else {
+                                        $('#TIPOUSUARIO_ID').append(`
+                                        <option value="${result.ID}">${result.NOME}</option>`)
+                                    }
+                                }
+                            }
+                        })
                     })
                     $('.btn-save').removeAttr('data-operation', 'insert')
                     $('.btn-save').show()
