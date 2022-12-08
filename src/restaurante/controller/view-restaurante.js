@@ -55,9 +55,9 @@ $(document).ready(function() {
                         $('#content-foto').addClass('d-none')
 
                         $('.olhar-foto').append(`
-                            <img src="src/restaurante/model/fotos/${dado.dados.FOTO}">
+                            <img  src="src/restaurante/model/fotos/${dado.dados.FOTO}">
                         `)
-                        
+
                     })
                     $('.btn-save').hide()
                     $('#modal-restaurante').modal('show')
